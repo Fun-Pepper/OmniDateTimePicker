@@ -34,6 +34,11 @@ Future<DateTime?> showOmniDateTimePicker({
   EdgeInsets? insetPadding,
   BoxConstraints? constraints,
   ThemeData? theme,
+  TextStyle? hourStyle,
+  TextStyle? minutesStyle,
+  TextStyle? secondsStyle,
+  TextStyle? amPmStyle,
+  double? itemExtent,
 }) {
   return showGeneralDialog(
     context: context,
@@ -74,6 +79,11 @@ Future<DateTime?> showOmniDateTimePicker({
           insetPadding: insetPadding,
           selectableDayPredicate: selectableDayPredicate,
           constraints: constraints,
+          hourStyle: hourStyle,
+          minutesStyle: minutesStyle,
+          secondsStyle: secondsStyle,
+          amPmStyle: amPmStyle,
+          itemExtent: itemExtent,
         ),
       );
     },
