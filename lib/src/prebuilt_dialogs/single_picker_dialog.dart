@@ -31,6 +31,12 @@ class SinglePickerDialog extends StatelessWidget {
   final BoxConstraints? constraints;
   final OmniDateTimePickerType? type;
 
+  final TextStyle? hourStyle;
+  final TextStyle? minutesStyle;
+  final TextStyle? secondsStyle;
+  final TextStyle? amPmStyle;
+  final double? itemExtent;
+
   const SinglePickerDialog({
     super.key,
     this.title,
@@ -54,6 +60,11 @@ class SinglePickerDialog extends StatelessWidget {
     this.borderRadius,
     this.constraints,
     this.type,
+    this.hourStyle,
+    this.minutesStyle,
+    this.secondsStyle,
+    this.amPmStyle,
+    this.itemExtent,
   });
 
   @override
@@ -99,6 +110,11 @@ class SinglePickerDialog extends StatelessWidget {
                         const CupertinoPickerDefaultSelectionOverlay(),
                     separator: separator,
                     type: type ?? OmniDateTimePickerType.dateAndTime,
+                    hourStyle: hourStyle,
+                    minutesStyle: minutesStyle,
+                    secondsStyle: secondsStyle,
+                    amPmStyle: amPmStyle,
+                    itemExtent: itemExtent,
                   ),
                 ),
               ),

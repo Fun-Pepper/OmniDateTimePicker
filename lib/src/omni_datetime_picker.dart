@@ -29,6 +29,12 @@ class OmniDateTimePicker extends StatefulWidget {
   final Widget? separator;
   final OmniDateTimePickerType type;
 
+  final TextStyle? hourStyle;
+  final TextStyle? minutesStyle;
+  final TextStyle? secondsStyle;
+  final TextStyle? amPmStyle;
+  final double? itemExtent;
+
   const OmniDateTimePicker({
     super.key,
     this.initialDate,
@@ -47,6 +53,11 @@ class OmniDateTimePicker extends StatefulWidget {
     this.selectionOverlay = const CupertinoPickerDefaultSelectionOverlay(),
     this.separator,
     this.type = OmniDateTimePickerType.dateAndTime,
+    this.hourStyle,
+    this.minutesStyle,
+    this.secondsStyle,
+    this.amPmStyle,
+    this.itemExtent,
   });
 
   @override
@@ -105,6 +116,11 @@ class _OmniDateTimePickerState extends State<OmniDateTimePicker> {
                     isForce2Digits: widget.isForce2Digits,
                     looping: widget.looping,
                     selectionOverlay: widget.selectionOverlay,
+                    hourStyle: widget.hourStyle,
+                    minutesStyle: widget.minutesStyle,
+                    secondsStyle: widget.secondsStyle,
+                    amPmStyle: widget.amPmStyle,
+                    itemExtent: widget.itemExtent ?? 40,
                   ),
               ],
             ),

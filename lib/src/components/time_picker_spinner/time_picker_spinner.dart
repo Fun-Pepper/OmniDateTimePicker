@@ -20,6 +20,10 @@ class TimePickerSpinner extends StatelessWidget {
   final double magnification;
   final bool looping;
   final Widget selectionOverlay;
+  final TextStyle? hourStyle;
+  final TextStyle? minutesStyle;
+  final TextStyle? secondsStyle;
+  final TextStyle? amPmStyle;
 
   const TimePickerSpinner({
     super.key,
@@ -29,6 +33,10 @@ class TimePickerSpinner extends StatelessWidget {
     this.squeeze = 1,
     this.magnification = 1.1,
     this.looping = false,
+    this.hourStyle,
+    this.minutesStyle,
+    this.secondsStyle,
+    this.amPmStyle,
     this.selectionOverlay = const CupertinoPickerDefaultSelectionOverlay(),
     required this.amText,
     required this.pmText,
