@@ -126,7 +126,12 @@ class TimePickerSpinner extends StatelessWidget {
                             hour = hour.padLeft(2, '0');
                           }
 
-                          return Center(child: Text(hour, style: hourStyle));
+                          return Center(child: Text(hour, style: hourStyle?.copyWith(
+                            fontWeight:
+                            index == state.hours.indexOf(hour)
+                                ? FontWeight.bold
+                                : null,
+                          )));
                         },
                       ),
                     ),
@@ -156,7 +161,13 @@ class TimePickerSpinner extends StatelessWidget {
                           if (isForce2Digits) {
                             minute = minute.padLeft(2, '0');
                           }
-                          return Center(child: Text(minute, style: minutesStyle));
+                          return Center(
+                              child: Text(minute, style: minutesStyle?.copyWith(
+                                fontWeight:
+                                index == state.minutes.indexOf(minute)
+                                    ? FontWeight.bold
+                                    : null,
+                              )));
                         },
                       ),
                     ),
@@ -188,7 +199,14 @@ class TimePickerSpinner extends StatelessWidget {
                               second = second.padLeft(2, '0');
                             }
 
-                            return Center(child: Text(second, style: secondsStyle));
+                            return Center(
+                                child: Text(second,
+                                    style: secondsStyle?.copyWith(
+                                      fontWeight:
+                                          index == state.seconds.indexOf(second)
+                                              ? FontWeight.bold
+                                              : null,
+                                    )));
                           },
                         ),
                       ),
@@ -215,8 +233,17 @@ class TimePickerSpinner extends StatelessWidget {
                         },
                         childCount: state.abbreviations.length,
                         itemBuilder: (context, index) {
+                          final abbreviations = state.abbreviations[index];
                           return Center(
-                              child: Text(state.abbreviations[index], style: amPmStyle,));
+                              child: Text(
+                                abbreviations,
+                            style: amPmStyle?.copyWith(
+                              fontWeight:
+                              index == state.abbreviations.indexOf(abbreviations)
+                                  ? FontWeight.bold
+                                  : null,
+                            ),
+                          ));
                         },
                       ),
                     ),
