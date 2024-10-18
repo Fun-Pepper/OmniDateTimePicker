@@ -426,8 +426,10 @@ class _DatePickerModeToggleButtonState
                           child: Text(
                             widget.title,
                             overflow: TextOverflow.ellipsis,
-                            style: textTheme.titleSmall?.copyWith(
-                              color: controlColor,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF222222),
                             ),
                           ),
                         ),
@@ -971,7 +973,11 @@ class _DayPickerState extends State<_DayPicker> {
         i = (i + 1) % DateTime.daysPerWeek) {
       final String weekday = localizations.narrowWeekdays[i];
       result.add(ExcludeSemantics(
-        child: Center(child: Text(weekday, style: headerStyle)),
+        child: Center(child: Text(weekday, style: const TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+          color:  Color(0xFF999999),
+        ))),
       ));
     }
     return result;
@@ -1135,13 +1141,31 @@ class _DayState extends State<_Day> {
       decoration: decoration,
       child: Center(
         child: Text(localizations.formatDecimal(widget.day.day),
-            style: dayStyle?.apply(color: dayForegroundColor)),
+            style: dayStyle?.apply(color: widget.isToday ? Color(0xFF007AFF) : Color(0xFF222222)).copyWith(
+              fontSize: widget.isToday ? 20 : 16,
+              fontWeight: widget.isToday ? FontWeight.bold : null,
+            )),
       ),
     );
 
     if (widget.isDisabled) {
       dayWidget = ExcludeSemantics(
-        child: dayWidget,
+        child: DecoratedBox(
+          decoration: ShapeDecoration(
+            color: const Color(0xFFE0EFFF),
+            shape: dayShape.copyWith(
+              side: datePickerTheme.todayBorder ?? defaults.todayBorder!,
+            ),
+          ),
+          child: Center(
+            child: Text(localizations.formatDecimal(widget.day.day),
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF999999),
+                )),
+          ),
+        ),
       );
     } else {
       dayWidget = InkResponse(

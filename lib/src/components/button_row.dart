@@ -22,6 +22,11 @@ class ButtonRow extends StatelessWidget {
             onPressed: onCancelPressed,
             child: Text(
               localizations.cancelButtonLabel,
+              style: const TextStyle(
+                fontSize: 16,
+                color: Color(0xFF007AFF),
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),
@@ -34,6 +39,11 @@ class ButtonRow extends StatelessWidget {
             onPressed: onSavePressed,
             child: Text(
               localizations.okButtonLabel,
+              style: const TextStyle(
+                fontSize: 16,
+                color: Color(0xFF007AFF),
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),
