@@ -1126,10 +1126,9 @@ class _DayState extends State<_Day> {
         (DatePickerThemeData? theme) => theme?.dayShape, states)!;
     final ShapeDecoration decoration = widget.isToday
         ? ShapeDecoration(
-            color: dayBackgroundColor,
+            color: const Color(0xFF007AFF),
             shape: dayShape.copyWith(
-              side: (datePickerTheme.todayBorder ?? defaults.todayBorder!)
-                  .copyWith(color: dayForegroundColor),
+              side: BorderSide.none,
             ),
           )
         : ShapeDecoration(
@@ -1141,7 +1140,8 @@ class _DayState extends State<_Day> {
       decoration: decoration,
       child: Center(
         child: Text(localizations.formatDecimal(widget.day.day),
-            style: dayStyle?.apply(color: widget.isToday ? Color(0xFF007AFF) : Color(0xFF222222)).copyWith(
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              color: widget.isToday ? const Color(0xFFFFFFFF) : const Color(0xFF222222),
               fontSize: widget.isToday ? 20 : 16,
               fontWeight: widget.isToday ? FontWeight.bold : null,
             )),
@@ -1154,7 +1154,7 @@ class _DayState extends State<_Day> {
           decoration: ShapeDecoration(
             color: const Color(0xFFE0EFFF),
             shape: dayShape.copyWith(
-              side: datePickerTheme.todayBorder ?? defaults.todayBorder!,
+              side: BorderSide.none,
             ),
           ),
           child: Center(
