@@ -1126,7 +1126,7 @@ class _DayState extends State<_Day> {
         (DatePickerThemeData? theme) => theme?.dayShape, states)!;
     final ShapeDecoration decoration = widget.isToday
         ? ShapeDecoration(
-            color: const Color(0xFF007AFF),
+            color: const Color(0xFFE0EFFF),
             shape: dayShape.copyWith(
               side: BorderSide.none,
             ),
@@ -1141,9 +1141,9 @@ class _DayState extends State<_Day> {
       child: Center(
         child: Text(localizations.formatDecimal(widget.day.day),
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              color: widget.isToday ? const Color(0xFFFFFFFF) : const Color(0xFF222222),
+              color: widget.isToday ? const Color(0xFF007AFF) : const Color(0xFF222222),
               fontSize: widget.isToday ? 20 : 16,
-              fontWeight: widget.isToday ? FontWeight.bold : null,
+              // fontWeight: widget.isToday ? FontWeight.bold : null,
             )),
       ),
     );
@@ -1151,17 +1151,11 @@ class _DayState extends State<_Day> {
     if (widget.isDisabled) {
       dayWidget = ExcludeSemantics(
         child: DecoratedBox(
-          decoration: ShapeDecoration(
-            color: const Color(0xFFE0EFFF),
-            shape: dayShape.copyWith(
-              side: BorderSide.none,
-            ),
-          ),
+          decoration: decoration,
           child: Center(
             child: Text(localizations.formatDecimal(widget.day.day),
                 style: const TextStyle(
                   fontSize: 16,
-                  fontWeight: FontWeight.bold,
                   color: Color(0xFF999999),
                 )),
           ),

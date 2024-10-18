@@ -24,8 +24,7 @@ class ButtonRow extends StatelessWidget {
               localizations.cancelButtonLabel,
               style: const TextStyle(
                 fontSize: 16,
-                color: Color(0xFF007AFF),
-                fontWeight: FontWeight.bold,
+                color: Color(0xFF999999),
               ),
             ),
           ),
