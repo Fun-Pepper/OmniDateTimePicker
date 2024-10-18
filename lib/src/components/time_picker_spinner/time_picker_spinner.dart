@@ -126,12 +126,7 @@ class TimePickerSpinner extends StatelessWidget {
                             hour = hour.padLeft(2, '0');
                           }
 
-                          return Center(child: Text(hour, style: hourStyle?.copyWith(
-                            fontWeight:
-                            index == state.hours.indexOf(hour)
-                                ? FontWeight.bold
-                                : null,
-                          )));
+                          return Center(child: Text(hour, style: hourStyle));
                         },
                       ),
                     ),
@@ -162,12 +157,7 @@ class TimePickerSpinner extends StatelessWidget {
                             minute = minute.padLeft(2, '0');
                           }
                           return Center(
-                              child: Text(minute, style: minutesStyle?.copyWith(
-                                fontWeight:
-                                index == state.minutes.indexOf(minute)
-                                    ? FontWeight.bold
-                                    : null,
-                              )));
+                              child: Text(minute, style: minutesStyle));
                         },
                       ),
                     ),
@@ -201,12 +191,7 @@ class TimePickerSpinner extends StatelessWidget {
 
                             return Center(
                                 child: Text(second,
-                                    style: secondsStyle?.copyWith(
-                                      fontWeight:
-                                          index == state.seconds.indexOf(second)
-                                              ? FontWeight.bold
-                                              : null,
-                                    )));
+                                    style: secondsStyle));
                           },
                         ),
                       ),
@@ -237,12 +222,7 @@ class TimePickerSpinner extends StatelessWidget {
                           return Center(
                               child: Text(
                                 abbreviations,
-                            style: amPmStyle?.copyWith(
-                              fontWeight:
-                              index == state.abbreviations.indexOf(abbreviations)
-                                  ? FontWeight.bold
-                                  : null,
-                            ),
+                            style: amPmStyle,
                           ));
                         },
                       ),
