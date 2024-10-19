@@ -141,7 +141,7 @@ class TimePickerSpinner extends StatelessWidget {
                                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                                     fontSize: hourStyle?.fontSize,
                                     color: hourStyle?.color,
-                                    fontWeight: hourStyle?.fontWeight,
+                                    fontWeight: isSelected ? hourStyle?.fontWeight : null,
                                   )));
                         },
                       ),
@@ -183,7 +183,7 @@ class TimePickerSpinner extends StatelessWidget {
                               child: Text(minute, style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                                 fontSize: minutesStyle?.fontSize,
                                 color: minutesStyle?.color,
-                                fontWeight: minutesStyle?.fontWeight,
+                                fontWeight: isSelected ? minutesStyle?.fontWeight : null,
                               )));
                         },
                       ),
@@ -259,7 +259,7 @@ class TimePickerSpinner extends StatelessWidget {
                             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                               fontSize: amPmStyle?.fontSize,
                               color: amPmStyle?.color,
-                              fontWeight: amPmStyle?.fontWeight,
+                              fontWeight: isSelected ? amPmStyle?.fontWeight : null,
                             ),
                           ));
                         },
