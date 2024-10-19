@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../bloc/omni_datetime_picker_bloc.dart';
@@ -137,9 +138,9 @@ class TimePickerSpinner extends StatelessWidget {
 
                           return Center(
                               child: Text(hour,
-                                  style: hourStyle?.copyWith(
-                                    fontWeight:
-                                        isSelected ? FontWeight.bold : null,
+                                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                    fontSize: hourStyle?.fontSize,
+                                    color: hourStyle?.color,
                                   )));
                         },
                       ),
@@ -178,8 +179,9 @@ class TimePickerSpinner extends StatelessWidget {
                             minute = minute.padLeft(2, '0');
                           }
                           return Center(
-                              child: Text(minute, style: minutesStyle?.copyWith(
-                                fontWeight: isSelected ? FontWeight.bold : null,
+                              child: Text(minute, style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                fontSize: minutesStyle?.fontSize,
+                                color: minutesStyle?.color,
                               )));
                         },
                       ),
@@ -252,8 +254,9 @@ class TimePickerSpinner extends StatelessWidget {
                           return Center(
                               child: Text(
                             abbreviations,
-                            style: amPmStyle?.copyWith(
-                              fontWeight: isSelected ? FontWeight.bold : null,
+                            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                              fontSize: amPmStyle?.fontSize,
+                              color: amPmStyle?.color,
                             ),
                           ));
                         },
