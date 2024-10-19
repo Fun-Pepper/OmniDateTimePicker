@@ -139,8 +139,7 @@ class TimePickerSpinner extends StatelessWidget {
                               child: Text(hour,
                                   style: hourStyle?.copyWith(
                                     fontWeight:
-                                        // isSelected ? FontWeight.bold : null,
-                                    FontWeight.bold,
+                                        isSelected ? FontWeight.bold : null,
                                   )));
                         },
                       ),
