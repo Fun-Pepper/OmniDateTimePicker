@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:omni_datetime_picker/omni_datetime_picker.dart';
 
+void main() => runApp(MyApp());
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -31,8 +33,21 @@ class OmniExample extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: () async {
-                final DateTime? dateTime =
-                    await showOmniDateTimePicker(context: context);
+                final DateTime? dateTime = await showOmniDateTimePicker(
+                  context: context,
+                  hourStyle: TextStyle(
+                    fontSize: 15,
+                    color: Color(0xFF222222),
+                  ),
+                  minutesStyle: TextStyle(
+                    fontSize: 15,
+                    color: Color(0xFF222222),
+                  ),
+                  amPmStyle: TextStyle(
+                    fontSize: 15,
+                    color: Color(0xFF222222),
+                  ),
+                );
 
                 // Use dateTime here
                 debugPrint('dateTime: $dateTime');

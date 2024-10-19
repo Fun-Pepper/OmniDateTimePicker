@@ -102,6 +102,7 @@ class TimePickerSpinner extends StatelessWidget {
                       looping: looping,
                       selectionOverlay: selectionOverlay,
                       onSelectedItemChanged: (index) {
+                        debugPrint('onSelectedItemChanged hour index: $index');
                         if (!is24HourMode) {
                           final hourOffset =
                               state.abbreviationController.selectedItem == 1
@@ -120,13 +121,27 @@ class TimePickerSpinner extends StatelessWidget {
                         growable: false,
                         state.hours.length,
                         (index) {
+                          final currentHour = datetimeBloc.state.dateTime.hour;
+                          final isSelected = currentHour == index ||
+                              (currentHour - 12) == index;
+
+                          debugPrint(
+                            'onSelectedItemChanged index: $index ----- current hour: ${datetimeBloc.state.dateTime.hour} isSelected: $isSelected',
+                          );
+
                           String hour = state.hours[index];
 
                           if (isForce2Digits) {
                             hour = hour.padLeft(2, '0');
                           }
 
-                          return Center(child: Text(hour, style: hourStyle));
+                          return Center(
+                              child: Text(hour,
+                                  style: hourStyle?.copyWith(
+                                    fontWeight:
+                                        // isSelected ? FontWeight.bold : null,
+                                    FontWeight.bold,
+                                  )));
                         },
                       ),
                     ),
@@ -153,11 +168,20 @@ class TimePickerSpinner extends StatelessWidget {
                         (index) {
                           String minute = state.minutes[index];
 
+                          final currentMinute = datetimeBloc.state.dateTime.minute;
+                          final isSelected = currentMinute == index;
+
+                          debugPrint(
+                            'onSelectedItemChanged index: $index ----- current minute: $currentMinute isSelected: $isSelected',
+                          );
+
                           if (isForce2Digits) {
                             minute = minute.padLeft(2, '0');
                           }
                           return Center(
-                              child: Text(minute, style: minutesStyle));
+                              child: Text(minute, style: minutesStyle?.copyWith(
+                                fontWeight: isSelected ? FontWeight.bold : null,
+                              )));
                         },
                       ),
                     ),
@@ -190,8 +214,7 @@ class TimePickerSpinner extends StatelessWidget {
                             }
 
                             return Center(
-                                child: Text(second,
-                                    style: secondsStyle));
+                                child: Text(second, style: secondsStyle));
                           },
                         ),
                       ),
@@ -219,10 +242,20 @@ class TimePickerSpinner extends StatelessWidget {
                         childCount: state.abbreviations.length,
                         itemBuilder: (context, index) {
                           final abbreviations = state.abbreviations[index];
+
+                          final currentAbbreviation = state.abbreviationController.selectedItem;
+                          final isSelected = currentAbbreviation == index;
+
+                          debugPrint(
+                            'onSelectedItemChanged index: $index ----- current abbreviation: $currentAbbreviation isSelected: $isSelected',
+                          );
+
                           return Center(
                               child: Text(
-                                abbreviations,
-                            style: amPmStyle,
+                            abbreviations,
+                            style: amPmStyle?.copyWith(
+                              fontWeight: isSelected ? FontWeight.bold : null,
+                            ),
                           ));
                         },
                       ),
