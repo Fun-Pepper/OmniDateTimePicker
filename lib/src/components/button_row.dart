@@ -25,13 +25,16 @@ class ButtonRow extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 16,
                 color: Color(0xFF999999),
+                fontWeight: FontWeight.bold,
               ),
             ),
           ),
         ),
         const SizedBox(
           height: 20,
-          child: VerticalDivider(),
+          child: VerticalDivider(
+            color: Color(0x40999999),
+          ),
         ),
         Expanded(
           child: TextButton(
