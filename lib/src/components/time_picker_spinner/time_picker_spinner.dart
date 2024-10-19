@@ -138,11 +138,9 @@ class TimePickerSpinner extends StatelessWidget {
 
                           return Center(
                               child: Text(hour,
-                                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                    fontSize: hourStyle?.fontSize,
-                                    color: hourStyle?.color,
-                                    fontWeight: isSelected ? hourStyle?.fontWeight : null,
-                                  )));
+                                  style: isSelected
+                                      ? hourStyle
+                                      : hourStyle?.copyWith(fontWeight: null)));
                         },
                       ),
                     ),
@@ -169,7 +167,8 @@ class TimePickerSpinner extends StatelessWidget {
                         (index) {
                           String minute = state.minutes[index];
 
-                          final currentMinute = datetimeBloc.state.dateTime.minute;
+                          final currentMinute =
+                              datetimeBloc.state.dateTime.minute;
                           final isSelected = currentMinute == index;
 
                           debugPrint(
@@ -180,11 +179,14 @@ class TimePickerSpinner extends StatelessWidget {
                             minute = minute.padLeft(2, '0');
                           }
                           return Center(
-                              child: Text(minute, style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                fontSize: minutesStyle?.fontSize,
-                                color: minutesStyle?.color,
-                                fontWeight: isSelected ? minutesStyle?.fontWeight : null,
-                              )));
+                              child: Text(
+                            minute,
+                            style: isSelected
+                                ? minutesStyle
+                                : minutesStyle?.copyWith(
+                                    fontWeight: null,
+                                  ),
+                          ));
                         },
                       ),
                     ),
@@ -246,7 +248,8 @@ class TimePickerSpinner extends StatelessWidget {
                         itemBuilder: (context, index) {
                           final abbreviations = state.abbreviations[index];
 
-                          final currentAbbreviation = state.abbreviationController.selectedItem;
+                          final currentAbbreviation =
+                              state.abbreviationController.selectedItem;
                           final isSelected = currentAbbreviation == index;
 
                           debugPrint(
@@ -256,11 +259,11 @@ class TimePickerSpinner extends StatelessWidget {
                           return Center(
                               child: Text(
                             abbreviations,
-                            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              fontSize: amPmStyle?.fontSize,
-                              color: amPmStyle?.color,
-                              fontWeight: isSelected ? amPmStyle?.fontWeight : null,
-                            ),
+                            style: isSelected
+                                ? amPmStyle
+                                : amPmStyle?.copyWith(
+                                    fontWeight: null,
+                                  ),
                           ));
                         },
                       ),
